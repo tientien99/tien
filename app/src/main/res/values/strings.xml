@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Login Demo</string>
+    <!-- for login -->
+    <string name="user_name">Tên đăng nhập</string>
+    <string name="password">Mật khẩu</string>
+    <string name="btn_Login">Đăng nhập</string>
+    <string name="btn_Register">Đăng ký</string>
+    <string name="break_line">_____________________ . _____________________</string>
+    <string name="f_line">Bằng cách đăng nhập, bạn đã chấp nhận các điều khoản của dịch vụ chúng tôi để hiển hơn về các điều</string>
+    <string name="s_line">khoản</string>
+    <string name="link">
+        <![CDATA[
+            <a href="https://www.youtube.com/">bấm vào đây</a>
+        ]]>
+    </string>
+    <!-- end login -->
+
+    <!-- for register -->
+    <string name="dangky">Đăng Ký</string>
+
+    <!-- end register -->
+</resources>
