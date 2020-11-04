@@ -136,7 +136,7 @@
         android:layout_width="252dp"
         android:layout_height="46dp"
         android:ems="10"
-        android:inputType="textPersonName|phone"
+        android:inputType="datetime|phone"
         app:layout_constraintBottom_toBottomOf="@+id/textView5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView5"
@@ -166,13 +166,13 @@
         app:layout_constraintTop_toBottomOf="@+id/textView5">
 
         <RadioButton
-            android:id="@+id/radioButton"
+            android:id="@+id/rbMale"
             android:layout_width="match_parent"
             android:layout_height="28dp"
             android:text="@string/male" />
 
         <RadioButton
-            android:id="@+id/radioButton2"
+            android:id="@+id/rbFemale"
             android:layout_width="match_parent"
             android:layout_height="28dp"
             android:text="@string/female" />
