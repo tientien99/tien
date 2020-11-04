@@ -17,6 +17,12 @@
 
     <!-- for register -->
     <string name="dangky">Đăng Ký</string>
-
+    <string name="dob">Ngày sinh</string>
+    <string name="phone">Số điện thoại</string>
+    <string name="email">Email</string>
+    <string name="gender">Giới tính</string>
+    <string name="male">Nam</string>
+    <string name="female">Nữ</string>
+    <string name="validate_date">dd/MM/yyyy</string>
     <!-- end register -->
 </resources>
