@@ -22,7 +22,6 @@ import java.util.Locale;
 
 public class ActivityRegister extends AppCompatActivity {
 
-    String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     final Calendar myCalender = Calendar.getInstance();
     private EditText edtDOB;
     private EditText edtUser;
@@ -32,6 +31,7 @@ public class ActivityRegister extends AppCompatActivity {
     private RadioGroup radioGroup;
     public String gender = "";
     private Button buttonRegister;
+
 
 
     public void updateLabel() {
@@ -66,6 +66,7 @@ public class ActivityRegister extends AppCompatActivity {
             public void onClick(View v) {
 
                 if (getAllCorrect()) {
+                    showInfor();
                     Toast.makeText(getApplicationContext(), "Đăng ký thành công", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(ActivityRegister.this, MainActivity.class);
                     startActivity(intent);
@@ -81,16 +82,6 @@ public class ActivityRegister extends AppCompatActivity {
             return true;
         }
         return false;
-    }
-
-    public void checkValidate() {
-        checkUser();
-        checkPass();
-        checkDOB();
-        checkPhone();
-        checkEmail();
-        checkGender();
-        showInfor();
     }
 
     public void showInfor() {
@@ -202,6 +193,11 @@ public class ActivityRegister extends AppCompatActivity {
         return true;
     }
 
+    static boolean isValid(String email) {
+        String regex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
+        return email.matches(regex);
+    }
+
     public boolean checkEmail() {
         String email = edtEmail.getText().toString();
         email = email.trim();
@@ -209,7 +205,7 @@ public class ActivityRegister extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Bạn chưa nhập Email", Toast.LENGTH_SHORT).show();
             return false;
         }
-        if (email.matches(emailPattern)) {
+        if (!isValid(email)) {
             edtEmail.requestFocus();
             edtEmail.selectAll();
             Toast.makeText(getApplicationContext(), "Email không đúng", Toast.LENGTH_SHORT).show();

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ef747a"
-    tools:context=".ActivityRegister">
+    tools:context=".FragmentAddEditUser" >
 
     <TextView
         android:id="@+id/textViewRegister"
@@ -99,8 +99,8 @@
 
     <EditText
         android:id="@+id/edtInputUser"
-        android:layout_width="252dp"
-        android:layout_height="46dp"
+        android:layout_width="245dp"
+        android:layout_height="51dp"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="@+id/textView2"
@@ -110,8 +110,8 @@
 
     <EditText
         android:id="@+id/edtInputPassword"
-        android:layout_width="252dp"
-        android:layout_height="46dp"
+        android:layout_width="245dp"
+        android:layout_height="51dp"
         android:ems="10"
         android:inputType="textPersonName|textPassword"
         app:layout_constraintBottom_toBottomOf="@+id/textView3"
@@ -121,8 +121,8 @@
 
     <EditText
         android:id="@+id/edtInputDOB"
-        android:layout_width="252dp"
-        android:layout_height="46dp"
+        android:layout_width="245dp"
+        android:layout_height="51dp"
         android:ems="10"
         android:hint="@string/validate_date"
         android:inputType="date"
@@ -133,8 +133,8 @@
 
     <EditText
         android:id="@+id/edtInputPhone"
-        android:layout_width="252dp"
-        android:layout_height="46dp"
+        android:layout_width="245dp"
+        android:layout_height="51dp"
         android:ems="10"
         android:inputType="phone"
         app:layout_constraintBottom_toBottomOf="@+id/textView5"
@@ -144,8 +144,8 @@
 
     <EditText
         android:id="@+id/edtInputEmail"
-        android:layout_width="252dp"
-        android:layout_height="46dp"
+        android:layout_width="245dp"
+        android:layout_height="51dp"
         android:ems="10"
         android:inputType="textPersonName|textEmailAddress"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -182,10 +182,10 @@
         android:id="@+id/btnRegister1"
         android:layout_width="273dp"
         android:layout_height="0dp"
-        android:layout_marginTop="112dp"
+        android:layout_marginTop="92dp"
         android:text="@string/btn_Register"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.572"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

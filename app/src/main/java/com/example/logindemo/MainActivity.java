@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         buttonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ActivityRegister.class);
+                Intent intent = new Intent(MainActivity.this, FragmentAddEditUser.class);
                 startActivity(intent);
             }
         });
