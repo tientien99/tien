@@ -11,17 +11,17 @@ import java.util.Date;
 public class User {
     @PrimaryKey(autoGenerate = true)
     private long userId;
-    @ColumnInfo
+    @ColumnInfo(name = "username")
     private String username;
-    @ColumnInfo
+    @ColumnInfo(name = "password")
     private String password;
-    @ColumnInfo
-    private Date dob;
-    @ColumnInfo
+    @ColumnInfo(name = "dob")
+    private String dob;
+    @ColumnInfo(name = "phone")
     private String phone;
-    @ColumnInfo
+    @ColumnInfo(name = "email")
     private String email;
-    @ColumnInfo
+    @ColumnInfo(name = "gender")
     private boolean gender;
 
     public long getUserId() {
@@ -48,11 +48,11 @@ public class User {
         this.password = password;
     }
 
-    public Date getDob() {
+    public String getDob() {
         return dob;
     }
 
-    public void setDob(Date dob) {
+    public void setDob(String dob) {
         this.dob = dob;
     }
 
@@ -83,7 +83,7 @@ public class User {
     public User() {
     }
 
-    public User(long userId, String username, String password, Date dob, String phone, String email, boolean gender) {
+    public User(long userId, String username, String password, String dob, String phone, String email, boolean gender) {
         this.userId = userId;
         this.username = username;
         this.password = password;

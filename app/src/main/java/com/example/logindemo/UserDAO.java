@@ -23,4 +23,8 @@ public interface UserDAO {
 
     @Query("SELECT * FROM user")
     public List<User> getAllUser();
+
+    @Query("SELECT username FROM user where 1=1 and username =:x")
+    public String checkUserName(String x);
+
 }

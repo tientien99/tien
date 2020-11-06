@@ -1,6 +1,8 @@
 package com.example.logindemo;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
+import androidx.room.RoomDatabase;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
@@ -31,7 +33,8 @@ public class ActivityRegister extends AppCompatActivity {
     private RadioGroup radioGroup;
     public String gender = "";
     private Button buttonRegister;
-
+    private boolean sex;
+    private MyDataBase myDataBase;
 
 
     public void updateLabel() {
@@ -64,9 +67,17 @@ public class ActivityRegister extends AppCompatActivity {
         buttonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                myDataBase = Room.databaseBuilder(getApplicationContext(), MyDataBase.class, "project.db").allowMainThreadQueries().build();
+                UserDAO userDAO = myDataBase.createUserDAO();
                 if (getAllCorrect()) {
                     showInfor();
+                    User user = new User();
+                    user.setUsername(edtUser.getText().toString());
+                    user.setPassword(edtPassword.getText().toString());
+                    user.setPhone(edtPhone.getText().toString());
+                    user.setEmail(edtEmail.getText().toString());
+                    user.setGender(sex);
+                    userDAO.insert(user);
                     Toast.makeText(getApplicationContext(), "Đăng ký thành công", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(ActivityRegister.this, MainActivity.class);
                     startActivity(intent);
@@ -107,11 +118,17 @@ public class ActivityRegister extends AppCompatActivity {
     public boolean checkUser() {
         String user = edtUser.getText().toString();
         user = user.trim();
+        myDataBase = Room.databaseBuilder(getApplicationContext(), MyDataBase.class, "project.db").allowMainThreadQueries().build();
+        UserDAO userDAO = myDataBase.createUserDAO();
+//        if(!userDAO.checkUserName(edtUser.getText().toString()).equals("")){
+//            Toast.makeText(getApplicationContext(), "Tài khoản đã tồn tại", Toast.LENGTH_SHORT).show();
+//            return false;
+//        }
         if (user.isEmpty()) {
             Toast.makeText(getApplicationContext(), "Bạn chưa nhập tài khoản", Toast.LENGTH_SHORT).show();
             return false;
         }
-        if (user.length() < 3) {
+        else if (user.length() < 3) {
             edtUser.requestFocus();
             edtUser.selectAll();
             Toast.makeText(getApplicationContext(), "Độ dài tên phải có ít nhất 3 ký tự!", Toast.LENGTH_SHORT).show();
@@ -216,6 +233,11 @@ public class ActivityRegister extends AppCompatActivity {
 
     public boolean checkGender() {
         int id = radioGroup.getCheckedRadioButtonId();
+        if (id == 1) {
+            sex = true;
+        } else if (id == 0) {
+            sex = false; // female
+        }
         if (id == -1) {
             Toast.makeText(getApplicationContext(), "Bạn chưa chọn giới tính", Toast.LENGTH_LONG).show();
             return false;
