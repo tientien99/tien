@@ -5,12 +5,13 @@
     <string name="password">Mật khẩu</string>
     <string name="btn_Login">Đăng nhập</string>
     <string name="btn_Register">Đăng ký</string>
-    <string name="break_line">_____________________ . _____________________</string>
-    <string name="f_line">Bằng cách đăng nhập, bạn đã chấp nhận các điều khoản của dịch vụ chúng tôi để hiển hơn về các điều</string>
+    <string name="break_line">________________________ . ________________________</string>
+    <string name="f_line">Bằng cách đăng nhập, bạn đã chấp nhận các điều khoản của dịch vụ chúng tôi để hiển hơn về các điều khoản</string>
     <string name="s_line">khoản</string>
+
     <string name="link">
         <![CDATA[
-            <a href="https://www.youtube.com/">bấm vào đây</a>
+            <a href="https://youtube.com/">bấm vào đây</a>
         ]]>
     </string>
     <!-- end login -->
@@ -27,4 +28,15 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <!-- end register -->
+
+    <!-- for forgot password -->
+    <string name="forgot_password">Quên mật khẩu</string>
+    <string name="confirm">Xác nhận</string>
+    <string name="Info">Quên mật khẩu</string>
+    <string name="change_password">Đổi mật khẩu</string>
+    <string name="new_pass">Mật khẩu mới</string>
+    <string name="confirm_pass">Xác nhận mật khẩu</string>
+    <string name="change">Xác nhận</string>
+    <string name="Logo_Name">Cuddle Home</string>
+    <!-- end for forgot password -->
 </resources>

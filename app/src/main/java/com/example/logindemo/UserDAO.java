@@ -15,7 +15,7 @@ public interface UserDAO {
     @Insert
     public long insert(User user);
 
-    @Update
+    @Update()
     public void update(User user);
 
     @Delete
@@ -26,5 +26,8 @@ public interface UserDAO {
 
     @Query("SELECT username FROM user where 1=1 and username =:x")
     public String checkUserName(String x);
+
+    @Query("SELECT * FROM user where 1=1 and username =:x")
+    public User findUserByName(String x);
 
 }

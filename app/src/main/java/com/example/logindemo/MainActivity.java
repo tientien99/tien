@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView textViewLink;
     private Button buttonLogin;
     private Button buttonRegister;
+    private Button buttonForgotPassword;
     private MyDataBase myDataBase;
     private EditText editTextUser;
     private EditText editTextPassword;
@@ -39,18 +40,16 @@ public class MainActivity extends AppCompatActivity {
 
         buttonLogin = findViewById(R.id.btnLogin);
         buttonRegister = findViewById(R.id.btnRegister);
+        buttonForgotPassword = findViewById(R.id.btnForgotPassWord);
 
         editTextUser = findViewById(R.id.edtUserName);
         editTextPassword = findViewById(R.id.edtPassword);
 
-        buttonRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ActivityRegister.class);
-                startActivity(intent);
-            }
-        });
-
+        Login();
+        Register();
+        ForgotPassWord();
+    }
+    public void Login(){
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
                     if (username.trim().equals(u.getUsername()) && password.trim().equals(u.getPassword())) {
                         Intent intent = new Intent(MainActivity.this, HomeActivity.class);
                         startActivity(intent);
+                        break;
                     } else {
                         Toast.makeText(getApplicationContext(), "Sai tên tài khoản hoặc mật khẩu", Toast.LENGTH_SHORT).show();
                     }
@@ -72,21 +72,25 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-//    public boolean checkUserInfo(){
-//        myDataBase = Room.databaseBuilder(getApplicationContext(),MyDataBase.class,"project.db").allowMainThreadQueries().build();
-//        UserDAO userDAO = myDataBase.createUserDAO();
-//        List<User> list = userDAO.getAllUser();
-//        User user = new User();
-//        String username = user.getUsername().toUpperCase().toString();
-//        String password = user.getPassword().toString();
-//        for (User u :
-//             list) {
-//            if(username.equals(u.getUsername()) && password.equals(u.getPassword())){
-//
-//            }
-//        }
-//        return false;
-//    }
+    public void Register(){
+        buttonRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ActivityRegister.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    public void ForgotPassWord(){
+        buttonForgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,ForgotPassword.class);
+                startActivity(intent);
+            }
+        });
+    }
 
     @Override
     protected void onResume() {
@@ -98,6 +102,10 @@ public class MainActivity extends AppCompatActivity {
         ) {
             getNameGender(u.isGender());
             System.out.println(u.getUsername());
+            System.out.println(u.getPassword());
+            System.out.println(u.getPhone());
+            System.out.println(u.getEmail());
+//            System.out.println(u.getUsername());
         }
     }
 

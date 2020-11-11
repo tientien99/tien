@@ -43,6 +43,12 @@ public class ActivityRegister extends AppCompatActivity {
         edtDOB.setText(sdf.format(myCalender.getTime()));
     }
 
+    public boolean regexPhone(String phone) {
+        String regex = "(0)+([0-9]{8,10})";
+        return phone.matches(regex);
+
+    }
+
     DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
         @Override
         public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
@@ -120,15 +126,10 @@ public class ActivityRegister extends AppCompatActivity {
         user = user.trim();
         myDataBase = Room.databaseBuilder(getApplicationContext(), MyDataBase.class, "project.db").allowMainThreadQueries().build();
         UserDAO userDAO = myDataBase.createUserDAO();
-//        if(!userDAO.checkUserName(edtUser.getText().toString()).equals("")){
-//            Toast.makeText(getApplicationContext(), "Tài khoản đã tồn tại", Toast.LENGTH_SHORT).show();
-//            return false;
-//        }
         if (user.isEmpty()) {
             Toast.makeText(getApplicationContext(), "Bạn chưa nhập tài khoản", Toast.LENGTH_SHORT).show();
             return false;
-        }
-        else if (user.length() < 3) {
+        } else if (user.length() < 3) {
             edtUser.requestFocus();
             edtUser.selectAll();
             Toast.makeText(getApplicationContext(), "Độ dài tên phải có ít nhất 3 ký tự!", Toast.LENGTH_SHORT).show();
@@ -205,6 +206,12 @@ public class ActivityRegister extends AppCompatActivity {
             edtPhone.requestFocus();
             edtPhone.selectAll();
             Toast.makeText(getApplicationContext(), "Số điện thoại không đúng", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if (!regexPhone(phone)) {
+            edtPhone.requestFocus();
+            edtPhone.selectAll();
+            Toast.makeText(getApplicationContext(), "Số điện thoại không đúng định dạng", Toast.LENGTH_SHORT).show();
             return false;
         }
         return true;
